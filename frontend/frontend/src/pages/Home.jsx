@@ -23,7 +23,7 @@ const Home = () => {
             </p>
 
             <button
-            onClick={() => navigate("/chat")}
+            onClick={() => navigate("/chatbot")}
             className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:scale-105 transition"
             >
             Start Screening
