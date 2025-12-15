@@ -5,8 +5,8 @@ const Home = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center">
-        <div className="bg-white p-10 rounded-2xl shadow-xl max-w-xl text-center">
+        <div className="min-h-screen flex items-center justify-center">
+        <div className="bg-[#F2F3FF] p-10 rounded-2xl shadow-xl max-w-xl text-center">
             <div className="flex justify-center mb-6">
             <div className="bg-indigo-600 p-4 rounded-xl text-white">
                 <Brain size={40} />
@@ -24,7 +24,7 @@ const Home = () => {
 
             <button
             onClick={() => navigate("/chatbot")}
-            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:scale-105 transition"
+            className="bg-linear-to-br from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:scale-105 transition"
             >
             Start Screening
             </button>

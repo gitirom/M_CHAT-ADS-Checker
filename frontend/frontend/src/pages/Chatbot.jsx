@@ -16,8 +16,7 @@
     const [sessionId] = useState(() => `session_${Date.now()}`);
     const messagesEndRef = useRef(null);
 
-    // const API_URL = import.meta.env.API_URL;
-    const API_URL = 'http://localhost:5000/api';
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -132,13 +131,13 @@
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-linear-to-r from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
         <div
             className="w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
             style={{ height: "90vh" }}
         >
             {/* Header */}
-            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 shadow-lg">
+            <div className="bg-linear-to-r from-indigo-600 to-purple-600 text-white p-6 shadow-lg">
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                 <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
@@ -154,9 +153,10 @@
                 <button
                 onClick={handleReset}
                 className="bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-colors backdrop-blur-sm"
+                id="resetBut"
                 title="Start New Assessment"
                 >
-                <RotateCcw className="w-5 h-5" />
+                <RotateCcw className="w-7 h-7" />
                 </button>
             </div>
 
@@ -193,7 +193,7 @@
                 <div
                     className={`max-w-[75%] rounded-2xl px-5 py-3 shadow-md ${
                     msg.role === "user"
-                        ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-br-sm"
+                        ? "bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-br-sm"
                         : "bg-white text-gray-800 rounded-bl-sm border border-gray-200"
                     }`}
                 >
@@ -273,7 +273,7 @@
             {isComplete ? (
                 <button
                 onClick={handleReset}
-                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg flex items-center justify-center gap-2"
+                className="w-full bg-linear-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg flex items-center justify-center gap-2"
                 >
                 <RotateCcw className="w-5 h-5" />
                 Start New Assessment
@@ -292,7 +292,7 @@
                 <button
                     onClick={sendMessage}
                     disabled={!inputValue.trim() || isLoading}
-                    className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2"
+                    className="bg-linear-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2"
                 >
                     <Send className="w-5 h-5" />
                     Send
@@ -315,6 +315,9 @@
             }
             .animate-fadeIn {
             animation: fadeIn 0.3s ease-out;
+            }
+            #resetBut{
+                background-color: #A55DEE;
             }
         `}</style>
         </div>
